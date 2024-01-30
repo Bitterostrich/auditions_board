@@ -16,6 +16,6 @@ const userLogin = new mongoose.Schema({
     token:String,
 
     
-})
+}, {collection: 'users'} )
 
 module.exports = mongoose.model("Login", userLogin)

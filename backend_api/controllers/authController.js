@@ -32,7 +32,6 @@ exports.register = async function (req, res, next) {
 }
 
 
-
 exports.login = async function (req, res, next) {
     try {
         const {username, password} = req.body // similar to writing username: req.body.username and password: req.body.password

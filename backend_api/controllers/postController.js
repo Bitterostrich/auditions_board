@@ -11,7 +11,7 @@ const axios = require('axios');
 //End of API code
 
 
-exports.getAllPosts = async function (req, res) {
+exports.getPosts = async function (req, res) {
   try {
     const postItems = await Post.find();
     res.send(postItems);
@@ -22,19 +22,19 @@ exports.getAllPosts = async function (req, res) {
 
 exports.createPost = async function (req, res, next) {
   try {
-    if (!req.body.name || !req.body.type || !req.body.date || !req.body.time || !req.body.location || !req.body.description) {
+    if (!req.body.postTitle || !req.body.postType || !req.body.postDate || !req.body.postTime || !req.body.postLocation || !req.body.postDescription) {
         return next(createError(400, "All fields required"));
     }
 // Call the getRandom function to get a random post
       // const randomPost = await getRandom();
 
     const postItem = new Post({
-      title: req.body.name,
-      type: req.body.type,
-      date: req.body.date,
-      time: req.body.time,
-      location: req.body.location,
-      description: req.body.description,
+      postTitle: req.body.postTitle,
+      postType: req.body.postType,
+      postDate: req.body.postDate,
+      postTime: req.body.postTime,
+      postLocation: req.body.postLocation,
+      postDescription: req.body.postDescription,
       // random_joke: randomPost
     });
 
@@ -88,12 +88,12 @@ exports.findPost = async function (req, res, next) {
     const query = {
       $or: [
         isObjectId ? { _id: searchTerm } : null,
-        { title: { $regex: new RegExp(searchTerm, 'i') } },
-        { type: { $regex: new RegExp(searchTerm, 'i') } },
-        { date: { $regex: new RegExp(searchTerm, 'i') } },
-        { time: { $regex: new RegExp(searchTerm, 'i') } },
-        { location: { $regex: new RegExp(searchTerm, 'i') } },
-        { description: { $regex: new RegExp(searchTerm, 'i') } }
+        { postTitle: { $regex: new RegExp(searchTerm, 'i') } },
+        { postType: { $regex: new RegExp(searchTerm, 'i') } },
+        { postDate: { $regex: new RegExp(searchTerm, 'i') } },
+        { postTime: { $regex: new RegExp(searchTerm, 'i') } },
+        { postLocation: { $regex: new RegExp(searchTerm, 'i') } },
+        { postDescription: { $regex: new RegExp(searchTerm, 'i') } }
       ].filter(Boolean)
     };
 

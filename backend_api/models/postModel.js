@@ -1,33 +1,35 @@
 const mongoose = require("mongoose")
 
 const postSchema = new mongoose.Schema({
-    title: {
+    postTitle: {
         type: String,
         required:true,
     },
 
-    type: {
+    postType: {
         type: String,
         required:true,
     },
 
-    date: {
-        type: String,
+    postDate: {
+        type: Date,
         required:true,
     },
-    time: {
+    
+    postTime: {
         type: String,
         required:true,
     },
 
-    location: {
+    postLocation: {
         type: String,
         required:true,
     },
-    description: {
+    postDescription: {
         type: String,
         required:true,
     },
+   
 
 
 
