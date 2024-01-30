@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Image from "next/image";
 
-const postItem = ({ postTitle, postTime, postType, postDate, postLocation, postDescription}) => {
+const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postDescription, onPostUpdate, onPostDelete}) => {
 
     
      
@@ -47,13 +47,13 @@ const postItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
 
                 <div className="flex justify-between">
                     <button 
-                        onClick={onUpdate} 
+                        onClick={onPostUpdate} 
                         className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
                     >
                         Update
                     </button>
                     <button 
-                        onClick={onDelete} 
+                        onClick={onPostDelete} 
                         className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2"
                     >
                         Delete
@@ -64,4 +64,4 @@ const postItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
     );
 };
 
-export default postItem;
+export default PostItem;

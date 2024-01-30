@@ -12,21 +12,29 @@ const Add = (props) => {
         e.preventDefault();
         setDisabled(true);
 
+
+
+
+
         const postData = {
+            _id: currentPost._id,
             postTitle: e.target.postTitle.value,
             postType: e.target.postType.value,
             postDate: e.target.postDate.value,
             postTime: e.target.postTime.value,
-            postDescription: e.target.postDescription.value,
-            // played: e.target.played.checked,
-            // difficulty: e.target.difficulty.value
+            postLocation: e.target.postLocation.value,
+            postDescription: e.target.postDescription.value
+
+            
         };
 
+      
         let result;
-        if (currentGame) {
-            result = props.client.editPost(currentPost._id, postData);
-        } else {
+        if (currentPost) {
             result = props.client.addPost(postData);
+           
+        } else {
+            result = props.client.updatePost(postData);
         }
 
         result.then(() => {
@@ -55,6 +63,8 @@ const Add = (props) => {
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />
                 </div>
+                
+
                 <div>
                     <label htmlFor="postType" className="block mb-2 text-sm font-medium text-gray-700">Type:</label>
                     <select 
@@ -74,11 +84,22 @@ const Add = (props) => {
                 </div>
 
                 <div>
+                    <label htmlFor="postTime" className="block mb-2 text-sm font-medium text-gray-700">Time: </label>
+                    <input 
+                        type ='time'
+                        name="postTime" 
+                        defaultValue={props.currentPost?.postDate} 
+                        disabled={disabled}
+                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    />
+                </div>
+
+                <div>
                     <label htmlFor="postDate" className="block mb-2 text-sm font-medium text-gray-700">Date</label>
                     <input 
                         type ='date'
                         name="postDate" 
-                        defaultValue={props.currentPost?.postDate} 
+                        defaultValue={props.currentPost?.postTime} 
                         disabled={disabled}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />
@@ -97,7 +118,7 @@ const Add = (props) => {
 
                 <div>
                     <label htmlFor="postDescription" className="block mb-2 text-sm font-medium text-gray-700">Description</label>
-                    <textarea
+                    <textarea   
                         type="text" 
                         name="postDescription" 
                         defaultValue={props.currentPost?.postDescription} 

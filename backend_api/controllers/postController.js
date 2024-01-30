@@ -22,7 +22,7 @@ exports.getPosts = async function (req, res) {
 
 exports.createPost = async function (req, res, next) {
   try {
-    if (!req.body.postTitle || !req.body.postType || !req.body.postDate || !req.body.postTime || !req.body.postLocation || !req.body.postDescription) {
+    if (!req.body.postTitle || !req.body.postType || !req.body.postTime || !req.body.postDate  || !req.body.postLocation || !req.body.postDescription) {
         return next(createError(400, "All fields required"));
     }
 // Call the getRandom function to get a random post
@@ -41,9 +41,6 @@ exports.createPost = async function (req, res, next) {
 
  
   
-      
-
-
     await postItem.save();
 
     res.send(postItem);

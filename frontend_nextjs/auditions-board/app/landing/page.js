@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Add from "../components/Addposts";
-import postItem from "../components/postItem";
+import PostItem from "../components/PostItem";
+
 
 export default function Landing(props) {
     const [posts, setPosts] = useState([]);
@@ -23,12 +24,13 @@ export default function Landing(props) {
 
     const removePost = (id) => {
         props.client.deletePost(id).then(() => {
-            refreshGames();
+            refreshPosts();
         });
     };
 
-    const updatePost = (game) => {
-        setCurrent(game);
+    const updatePost = (post) => {
+        console.log(post)
+        setCurrent(post);
     };
 
     useEffect(() => {
@@ -39,7 +41,7 @@ export default function Landing(props) {
         <div className="min-h-screen dynamic-bg">
             <div className="flex items-center px-10 py-10  mx-auto justify-between text-center">
  
-            <h1 className="text-3xl dynamic-bg font-bold text-center text-gray-800 upper-case">auditions board</h1>
+            <h1 className="text-3xl dynamic-bg font-bold text-center text-gray-800 uppercase">The Auditions Board</h1>
             <button onClick={props.logout} className="logout-button-styles text-white bg-blue-400 p-2 rounded-lg duration-300  hover:scale-110 hover:bg-blue-600">
                     Logout
                 </button>
@@ -58,12 +60,12 @@ export default function Landing(props) {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {posts.map((post) => (
-                        <postItem
+                        <PostItem
                             key={post._id}
                             postTitle={post.postTitle}
                             postType={post.postType}
-                            postDate={post.postDate}
                             postTime={post.postTime}
+                            postDate={post.postDate}
                             postLocation={post.postLocation}
                             postDescription={post.postDescription}
                             onPostUpdate={() => updatePost(post)}

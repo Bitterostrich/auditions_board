@@ -29,19 +29,21 @@ export class ApiClient {
     }
 
     getPosts() {
-        return this.authenticatedCall("get", `${url}posts/`);
+        return this.authenticatedCall("get", `${url}posts`);
     }
 
-    addPost(postTitle, postType, postDate, postTime, postLocation, postDescription) {
-        return this.authenticatedCall("post", `${url}create/`, { postTitle, postType, postDate, postTime, postLocation, postDescription })
+    addPost(postData) {
+    //    console.log(postData)
+        return this.authenticatedCall("post", `${url}create`, postData)
     }
 
     deletePost(id) {
         return this.authenticatedCall("delete", `${url}delete/${id}`)
     }
 
-    updatePost(id, postTitle, postType, postDate, postTime, postLocation, postDescription) {
-        return this.authenticatedCall("patch", `${url}update/${id}`, { postTitle, postType, postDate, postTime, postLocation, postDescription })
+    updatePost(postData) {
+        console.log(postData)
+        return this.authenticatedCall("patch", `${url}update/${postData._id}`, postData)
     }
 
 

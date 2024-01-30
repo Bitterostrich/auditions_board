@@ -4,7 +4,7 @@ const { getPosts, createPost, deletePost, editPost, findPost} = require("../cont
 router.get("/posts", getPosts);
 router.post("/create", createPost);
 router.delete("/delete/:id", deletePost);
-router.patch("/edit/:id", editPost);
+router.patch("/update/:id", editPost);
 router.get("/find/:query?", findPost);
 
 
