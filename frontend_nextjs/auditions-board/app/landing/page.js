@@ -19,6 +19,7 @@ export default function Landing(props) {
     const refreshPosts = () => {
         props.client.getPosts().then((response) => {
             setPosts(response.data);
+            setCurrent(null)
         });
     };
 
@@ -46,7 +47,11 @@ export default function Landing(props) {
                     Logout
                 </button>
             </div>
-            <div className="container mx-auto py-8 flex">
+            
+            
+            
+            <div className="container flex flex-cols-1md:flex-cols-2 mx-auto py-8">
+                <div className="flex">
                 <aside className="w-1/4 sticky top-20 self-start">
                 <div className="mt-8">
                     <Add
@@ -73,8 +78,11 @@ export default function Landing(props) {
                         />
                     ))}
                 </div>
+                    
                 </div>
-
+                
+              
+                </div>
 
 
             </div>
