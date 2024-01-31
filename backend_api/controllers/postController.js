@@ -39,7 +39,7 @@ exports.createPost = async function (req, res, next) {
     });
 
 
- 
+
   
     await postItem.save();
 
@@ -64,13 +64,15 @@ exports.deletePost = async function (req, res, next) {
 
 exports.editPost = async function (req, res, next) {
   try {
-    const updatedPostItem = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const postId = req.params.id;
+    const updatedPostItem = await Post.findByIdAndUpdate(postId, req.body, { new: true });
 
     if (!updatedPostItem) {
       return next(createError(404, "No post with that id"));
     }
 
-    res.send({ result: true, updatedPostItem });
+    res.status(200).json(updatedPostItem)
+    // res.send({ result: true, updatedPostItem });
   } catch (err) {
     return next(createError(500, err.message));
   }

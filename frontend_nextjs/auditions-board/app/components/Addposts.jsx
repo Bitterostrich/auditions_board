@@ -17,7 +17,7 @@ const Add = (props) => {
 
 
         const postData = {
-            _id: currentPost._id,
+       
             postTitle: e.target.postTitle.value,
             postType: e.target.postType.value,
             postDate: e.target.postDate.value,
@@ -30,18 +30,22 @@ const Add = (props) => {
 
       
         let result;
-        if (currentPost) {
-            result = props.client.addPost(postData);
+        console.log("Current post:", currentPost)
+        if (currentPost && currentPost._id) {
+           
+          
+            result = props.client.updatePost(currentPost._id, postData);
            
         } else {
-            result = props.client.updatePost(postData);
+            result = props.client.addPost(postData);
         }
 
         result.then(() => {
             setDisabled(false);
             document.getElementById("addForm").reset();
             props.refreshPost();
-        }).catch(() => {
+        }).catch((error) => {
+            console.error("Error adding/updating post: ", error)
             alert("There was an error");
             setDisabled(false);
         });
@@ -88,7 +92,7 @@ const Add = (props) => {
                     <input 
                         type ='time'
                         name="postTime" 
-                        defaultValue={props.currentPost?.postDate} 
+                        defaultValue={props.currentPost?.postTime} 
                         disabled={disabled}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />
@@ -99,7 +103,7 @@ const Add = (props) => {
                     <input 
                         type ='date'
                         name="postDate" 
-                        defaultValue={props.currentPost?.postTime} 
+                        defaultValue={props.currentPost?.postDate} 
                         disabled={disabled}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                     />

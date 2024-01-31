@@ -41,9 +41,9 @@ export class ApiClient {
         return this.authenticatedCall("delete", `${url}delete/${id}`)
     }
 
-    updatePost(postData) {
+    updatePost(id, postData) {
         console.log(postData)
-        return this.authenticatedCall("patch", `${url}update/${postData._id}`, postData)
+        return this.authenticatedCall("patch", `${url}update/${id}`, postData)
     }
 
 

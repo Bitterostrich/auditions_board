@@ -58,7 +58,7 @@ export default function Landing(props) {
                 </aside>
                 <div className="w-3/4 ml-8">
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid gap-6">
                     {posts.map((post) => (
                         <PostItem
                             key={post._id}
