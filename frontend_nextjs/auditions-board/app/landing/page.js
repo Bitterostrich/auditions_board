@@ -40,6 +40,8 @@ export default function Landing(props) {
         refreshPosts();
     }, []);
 
+    
+
     return (
         <div className="min-h-screen dynamic-bg">
             <div className="flex border shadow-sm w-full items-center px-10 py-10  mx-auto justify-between text-center">

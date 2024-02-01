@@ -57,7 +57,7 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
         
         <button 
             onClick={onPostUpdate} 
-            className="text-white  bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
+            className="text-white  bg-slate-800 hover:bg-slate-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
         >
             <span class="flex items-center gap-2"><Recycle />Update</span>
         </button>
@@ -75,12 +75,13 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
 </div>
 </div>
 
-<div className="w-1/4 items-center text-center  h-full bg-gray-300 border rounded-r-lg ">
+<div className="w-1/4 items-center text-center  h-full bg-slate-800
+ border rounded-r-lg ">
     <div className="border-lg p-4">
      
         <h3 className="mt-14 flex font-bold justify-center uppercase text-white text-md">Role:</h3>
         <p className="text-md mb-2 text-white font-normal">{postType}</p> 
-        <button className="rounded-lg bg-green-400 hover:bg-green-600 px-2 py-2 "><a href="mailto:apply@example.com?subject=Apply body=Web Application">Apply</a></button>
+        <button className="rounded-lg bg-green-400 hover:bg-green-600 px-4 py-2 "><a href="mailto:apply@example.com?subject=Apply body=Web Application">Apply</a></button>
     </div>
 </div>
 </div>
