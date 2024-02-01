@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
 import Add from "../components/Addposts";
 import PostItem from "../components/PostItem";

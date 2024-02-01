@@ -198,6 +198,7 @@ const Add = (props) => {
                     <label htmlFor="postDescription" className="block mb-2 text-sm font-medium text-gray-700">Description</label>
                     <textarea   
                         type="text" 
+                        name="postDescription"
                         value={postData.postDescription}
                         onChange={handleChange}
                         disabled={disabled}
