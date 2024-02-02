@@ -23,7 +23,8 @@ app.use(cors({
     origin: [
         'auditions-board-c0yirsg9y-bitterostrichs-projects.vercel.app',
         "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app/login",
-        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app"
+        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app",
+        "https://auditions-board.vercel.app/"
     ]
         
 }))
