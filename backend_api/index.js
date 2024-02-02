@@ -19,15 +19,19 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 app.use(express.json())
 
-app.use(cors({
-    origin: [
-        'auditions-board-c0yirsg9y-bitterostrichs-projects.vercel.app',
-        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app/login",
-        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app",
-        "https://auditions-board.vercel.app/"
-    ]
+app.use(cors())
+
+
+// {
+//     origin: [
+//         'https://auditions-board-c0yirsg9y-bitterostrichs-projects.vercel.app',
+//         "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app/login",
+//         "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app",
+//         "https://auditions-board.vercel.app/",
+//         "http://localhost:3000"
+//     ]
         
-}))
+// }
 
 app.use(authRouter)
 app.use(postRouter)
