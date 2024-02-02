@@ -37,7 +37,7 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
 
     <div className="mb-4 text-sm">
       <h3 className="font-bold text-sm">Description:</h3> 
-      {expanded ? postDescription : postDescription.substring(0, 200) + '...' }
+      {expanded ? postDescription : (postDescription ? postDescription.substring(0, 200) + '...' : "" )}
 <p onClick={toggleExpanded} className="text-sm text-blue-600 cursor-pointer focus:outline-none">
 
 { !expanded ? 'See More' : 'See Less'}
