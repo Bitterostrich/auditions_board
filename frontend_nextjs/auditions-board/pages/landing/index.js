@@ -43,20 +43,20 @@ export default function Landing(props) {
 
     return (
         <div className="min-h-screen dynamic-bg">
-            <div className="flex border items-center px-10 py-10  mx-auto justify-between text-center">
+            <div className=" p-5 flex border items-center md:px-10 md:py-10  mx-auto justify-between text-center">
  
-            <h1 className="text-3xl dynamic-bg font-bold text-center text-gray-800 uppercase">The Auditions Board</h1>
-            <button onClick={logout} className="logout-button-styles text-white bg-red-700 p-2 rounded-lg duration-300 hover:bg-red-600 hover:scale-105 ">
+            <h1 className="md:text-3xl dynamic-bg font-bold text-center text-gray-800 uppercase">The Auditions Board</h1>
+            <button onClick={logout} className="logout-button-styles text-xs md:text-lg text-white bg-red-700 p-2 rounded-lg duration-300 hover:bg-red-600 hover:scale-105 ">
                     Logout
                 </button>
             </div>
             
             
             
-            <div className="container flex flex-cols-1md:flex-cols-2 mx-auto py-8">
-                <div className="flex">
-                <aside className="w-1/4 sticky top-20 self-start">
-                <div className="mt-8">
+            <div className="md:container flex-col flex md:flex-row  md:flex-cols-2 md:mx-auto md:py-8">
+                <div className="md:flex">
+                <aside className="  md:w-1/4 md:sticky md:top-20 md:self-start">
+                <div className="mt-1 ">
                     <Add
                         client={client}
                         refreshPost={refreshPosts}
@@ -64,7 +64,7 @@ export default function Landing(props) {
                     />
                 </div>
                 </aside>
-                <div className="w-3/4 ml-8">
+                <div className="md:w-3/4 md:ml-8">
                 
                 <div className="grid gap-6">
                     {posts.map((post) => (

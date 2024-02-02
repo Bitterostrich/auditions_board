@@ -57,7 +57,7 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
         
         <button 
             onClick={onPostUpdate} 
-            className="text-white  bg-slate-800 hover:bg-slate-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-2"
+            className="font-medium rounded-lg text-sm px-4 py-2 mr-2 text-white   bg-slate-800 hover:bg-slate-700 focus:ring-4 focus:ring-blue-300 hover:scale-105 duration-300"
         >
             <span class="flex items-center gap-2"><Recycle />Update</span>
         </button>
@@ -67,7 +67,7 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
         <div></div>
         <button 
             onClick={onPostDelete} 
-            className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2"
+            className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 hover:scale-105 duration-300 font-medium rounded-lg text-sm px-4 py-2"
         >
             <Trash2 />
         </button>
@@ -81,7 +81,7 @@ const PostItem = ({ postTitle, postTime, postType, postDate, postLocation, postD
      
         <h3 className="mt-14 flex font-bold justify-center uppercase text-white text-md">Role:</h3>
         <p className="text-md mb-2 text-white font-normal">{postType}</p> 
-        <button className="rounded-lg bg-green-400 hover:bg-green-600 px-4 py-2 "><a href="mailto:apply@example.com?subject=Apply body=Web Application">Apply</a></button>
+        <button className="px-2 rounded-lg font-semibold text-slate-800 bg-green-400 hover:bg-green-600  md:px-4 py-2 "><a href="mailto:apply@example.com?subject=Apply body=Web Application">Apply</a></button>
     </div>
 </div>
 </div>

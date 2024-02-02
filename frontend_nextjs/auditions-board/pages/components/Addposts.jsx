@@ -169,10 +169,11 @@ const Add = (props) => {
                     />
                 </div>
 
-                <button 
+            <div className="flex justify-between">
+            <button 
                     type="submit" 
                     disabled={disabled}
-                    className="text-white bg-slate-800 hover:bg-slate-600 hover:scale-x-95 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-blue-300"
+                    className="text-white bg-slate-800 hover:bg-slate-600 hover:scale-x-95 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg p-2 lg:p-2 text-sm  md:px-2 md:py-2.5 text-center disabled:bg-blue-300"
                 >
                     {props.currentPost ? "Update" : "Add"}
                 </button>
@@ -181,11 +182,13 @@ const Add = (props) => {
                     <button
                         type="button"
                         onClick={cancelUpdateHandler}
-                        className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+                        className="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm p-2  md:px-2 lg:p-2 md:py-2 text-center"
                     >
-                        Cancel Update
+                        Cancel
                     </button>
                 )}
+            </div>
+
             </form>
         </div>
     );
