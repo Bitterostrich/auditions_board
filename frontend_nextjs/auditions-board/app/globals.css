@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.progress-bar {
+  transition: width 0.5s ease, background-color 0.5s ease;
+
+  border-radius: 0.25rem;
+}
+
+.bg-weak {
+  background-color: #f87171; /* Example: red */
+}
+
+.bg-medium {
+  background-color: #fbbf24; /* Example: yellow */
+}
+
+.bg-strong {
+  background-color: #34d399; /* Example: green */
+}

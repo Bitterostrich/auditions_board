@@ -1,20 +1,26 @@
 'use client'
 import { useState } from "react";
-import Link from 'next/link'
+import Link from 'next/link';
+import { useRouter } from "next/router";
+import { useApiClient } from '../../contexts/ApiClientContext'; 
 
-const Login = (props) => {
+const Login = () => {
     const [disabled, setDisabled] = useState(false);
+    const router = useRouter();
+    const { client, logout } = useApiClient(); 
 
     const submitHandler = (e) => {
         e.preventDefault();
         setDisabled(true);
-        props.client.login(e.target.username.value, e.target.password.value)
+        client.login(e.target.username.value, e.target.password.value)
             .then((response) => {
                 setDisabled(false);
-                props.loggedIn(response.data.token);
+                localStorage.setItem("token", response.data.token);
+                router.push('/landing')
             })
-            .catch(() => {
-                alert("An error occurred");
+            .catch((error) => {
+                alert("An error occurred, request not sent!");
+                console.log('Here is the error message from the login submit handler: ',error)
                 setDisabled(false);
             });
     };
@@ -44,6 +50,7 @@ const Login = (props) => {
                             disabled={disabled}
                         />
                     </div>
+                    <div className="flex justify-between items-center">
                     <button 
                         type="submit" 
                         className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-blue-300"
@@ -51,6 +58,12 @@ const Login = (props) => {
                     >
                         Login
                     </button>
+
+                    <Link 
+                    className="bg-blue-600 text-white hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:bg-blue-300"
+                    href="/register">
+                   Register</Link>
+                    </div>
                 </form>
                 {/* <button onClick={props.toggleView}>Don't have an account?
                     <Link href="/register"> Sign Up</Link></button> */}

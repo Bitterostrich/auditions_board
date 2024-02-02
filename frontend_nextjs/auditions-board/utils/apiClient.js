@@ -48,7 +48,7 @@ export class ApiClient {
 
 
 
-    async login(username, password) {
+    async login(username, password){
         return await axios({
             method: "post",
             url: `${url}login`,
@@ -57,12 +57,12 @@ export class ApiClient {
     }
 
     
-    // async register(username, password) {
-    //     return await axios({
-    //         method: "post",
-    //         url: `${url}register`,
-    //         data: {username, password}
-    //     })
-    // }
+    async register(username, password) {
+        return await axios({
+            method: "post",
+            url: `${url}register`,
+            data: {username, password}
+        })
+    }
 
 }
