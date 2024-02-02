@@ -1,23 +1,28 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import {useRouter} from 'next/router';
+import {useApiClient} from '../../contexts/ApiClientContext'
 
 const Register = (props) => {
   const [disabled, setDisabled] = useState(false);
   const [passwordStrength, setPasswordStrength] = useState("");
   const [passwordStrengthClass, setPasswordStrengthClass] = useState("")
   const [progressBarClass, setProgressBarClass] = useState("");
-  const [progressBarWidth, setProgressBarWidth] = useState(0);
+  const [progressBarWidth, setProgressBarWidth] = useState(0)
+  const router = useRouter()
+  const {client, register} = useApiClient()
 
   const submitHandler = (e) => {
     e.preventDefault();
     setDisabled(true);
     console.log("Client object:", props.client);
  
-    props.client.login(e.target.username.value, e.target.password.value)
+    client.register(e.target.username.value, e.target.password.value)
       .then((response) => {
         setDisabled(false);
-        props.loggedIn(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        router.push('/landing')
       })
       .catch(() => {
         alert("An error occurred");
