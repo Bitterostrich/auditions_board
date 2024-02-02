@@ -10,10 +10,11 @@ const ApiClientContext = createContext({
 export const useApiClient = () => useContext(ApiClientContext);
 
 export const ApiClientProvider = ({ children }) => {
-    const router = useRouter()
+
+  const router = useRouter()
   const client = useMemo(() => new ApiClient(
     () => localStorage.getItem('token'), 
-    () => logout() 
+    () => logout()  
   ), []);
 
   const logout = () => {
