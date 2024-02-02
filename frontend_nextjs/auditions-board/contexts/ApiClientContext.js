@@ -14,12 +14,13 @@ export const ApiClientProvider = ({ children }) => {
   const router = useRouter()
   const client = useMemo(() => new ApiClient(
     () => localStorage.getItem('token'), 
-    () => logout()  
+    () => logout()
   ), []);
 
   const logout = () => {
     localStorage.removeItem('token');
     router.push('/login')
+
   };
 
   return (

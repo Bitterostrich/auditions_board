@@ -43,10 +43,10 @@ export default function Landing(props) {
 
     return (
         <div className="min-h-screen dynamic-bg">
-            <div className="flex items-center px-10 py-10  mx-auto justify-between text-center">
+            <div className="flex border items-center px-10 py-10  mx-auto justify-between text-center">
  
             <h1 className="text-3xl dynamic-bg font-bold text-center text-gray-800 uppercase">The Auditions Board</h1>
-            <button onClick={logout} className="logout-button-styles text-white bg-blue-400 p-2 rounded-lg duration-300  hover:scale-110 hover:bg-blue-600">
+            <button onClick={logout} className="logout-button-styles text-white bg-red-700 p-2 rounded-lg duration-300 hover:bg-red-600 hover:scale-105 ">
                     Logout
                 </button>
             </div>

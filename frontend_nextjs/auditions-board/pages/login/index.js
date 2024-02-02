@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 import { useApiClient } from '../../contexts/ApiClientContext'; 
 
-const Login = (props) => {
+const Login = () => {
     const [disabled, setDisabled] = useState(false);
     const router = useRouter();
     const { client, logout } = useApiClient(); 
