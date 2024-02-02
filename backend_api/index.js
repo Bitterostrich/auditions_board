@@ -19,7 +19,14 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 app.use(express.json())
 
-app.use(cors())
+app.use(cors({
+    origin: [
+        'auditions-board-c0yirsg9y-bitterostrichs-projects.vercel.app',
+        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app/login",
+        "https://auditions-board-jmhnfy82i-bitterostrichs-projects.vercel.app"
+    ]
+        
+}))
 
 app.use(authRouter)
 app.use(postRouter)
