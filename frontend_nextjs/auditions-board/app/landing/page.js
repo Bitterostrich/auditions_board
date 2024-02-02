@@ -47,7 +47,7 @@ export default function Landing(props) {
             <div className="flex border shadow-sm w-full items-center px-10 py-10  mx-auto justify-between text-center">
  
             <h1 className="text-3xl dynamic-bg font-bold text-center text-gray-800 uppercase">The Auditions Board</h1>
-            <button onClick={props.logout} className="logout-button-styles text-white bg-blue-400 p-2 rounded-lg duration-300  hover:scale-110 hover:bg-blue-600">
+            <button onClick={props.logout} className="logout-button-styles text-white bg-red-600 p-2 rounded-lg duration-300 hover:bg-red-500 hover:scale-105 ">
                     Logout
                 </button>
             </div>
@@ -56,7 +56,7 @@ export default function Landing(props) {
             
             <div className="container flex flex-cols-1md:flex-cols-2 mx-auto py-8">
                 <div className="flex">
-                <aside className="w-1/4 sticky self-start">
+                <aside className="w-1/4 sticky top-20 self-start">
                 <div className="mt-8">
                     <Add
                         client={props.client}
