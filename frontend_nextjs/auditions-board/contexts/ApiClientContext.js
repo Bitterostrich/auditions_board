@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo } from 'react';
-import { ApiClient } from '@/utils/apiClient'; // Adjust your import as necessary
+import { ApiClient } from '@/utils/apiClient'; 
 import {useRouter} from 'next/router'
 
 const ApiClientContext = createContext({
