@@ -101,6 +101,7 @@ exports.findPost = async function (req, res, next) {
     const postItems = await Post.find(query);
 
     if (!postItems || postItems.length === 0) {
+      console.error('The post does not exist.')
       return next(createError(404, 'No post found with the specified criteria.'));
     }
 
@@ -109,4 +110,5 @@ exports.findPost = async function (req, res, next) {
     return next(createError(500, err.message));
   }
 };
+
 

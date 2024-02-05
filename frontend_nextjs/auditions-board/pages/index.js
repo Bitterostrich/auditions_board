@@ -1,15 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { ApiClient } from "@/utils/apiClient";
-import Landing from "./landing/page";
-import Login from "./login/page";
+import { useApiClient } from '../contexts/ApiClientContext';
+// import Landing from "../pages/landing/page"
+// import Login from "../pages/login/page";
+
 
 
 
 export default function Home() {
 
   const [token, setToken] = useState(null);
-  // const [showLogin, setShowLogin] = useState(true);
+  const router = useRouter()
+
   
   const client = new ApiClient(
     () => token, 
@@ -19,8 +23,10 @@ export default function Home() {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
       setToken(storedToken);
+      router.push('/landing')
     } else {
-      localStorage.removeItem("token")
+      router.push('/login')
+ 
     }
   }, []);
 
@@ -28,37 +34,26 @@ export default function Home() {
     localStorage.setItem("token", token);
     console.log(token)
     setToken(token);
+    router.push('/landing')
     
   }
+
+
 
   const toggleView = () => {
     setShowLogin(!showLogin)
   }
 
 
-
   const logout = () => {
     localStorage.removeItem("token");
     setToken(null);
+    router.push('/login')
   }
 
   return (
    <div>
-      {
-        token ? (
-          <Landing
-          client ={client}
-          logout={logout}
-       />
-        ) : ( <Login loggedIn={(token) => login(token)} client={client}/>
-        ) 
-          
-          // : (
-          //   <Register registeredIn={(token) => register(token)} client={client} toggleView={toggleView} />
-          // )
-         
-        // ) 
-      }
+  Redirecting....
    </div>
   );
 }

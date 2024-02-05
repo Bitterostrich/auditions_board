@@ -1,6 +1,7 @@
 import axios from "axios";
-const url = "http://localhost:3001/";
+const url = "localhost:3000/";
 
+// https://audboard.onrender.com/
 
 export class ApiClient {
     constructor(tokenProvider, logoutHandler) {
@@ -48,7 +49,7 @@ export class ApiClient {
 
 
 
-    async login(username, password) {
+    async login(username, password){
         return await axios({
             method: "post",
             url: `${url}login`,
@@ -57,12 +58,12 @@ export class ApiClient {
     }
 
     
-    // async register(username, password) {
-    //     return await axios({
-    //         method: "post",
-    //         url: `${url}register`,
-    //         data: {username, password}
-    //     })
-    // }
+    async register(username, password) {
+        return await axios({
+            method: "post",
+            url: `${url}register`,
+            data: {username, password}
+        })
+    }
 
 }

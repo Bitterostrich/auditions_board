@@ -15,6 +15,7 @@ exports.register = async function (req, res, next) {
         const existingUser = await Users.findOne({ username });
 
         if (existingUser) {
+            console.error('This username is not available.')
             return res.status(400).json({message: 'Username already exists.'})
         }
 
